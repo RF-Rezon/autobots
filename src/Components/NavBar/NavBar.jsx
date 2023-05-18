@@ -4,10 +4,10 @@ const NavBar = () => {
     const [user, setUser] = useState(false);
   return (
     <div>
-      <header aria-label="Site Header" className="bg-white rounded-md p-5 my-3 mb-20 md:mb-5">
+      <header className="bg-white rounded-md p-8 my-5 mx-5 md:mx-0">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between flex-col md:flex-row">
-            <div className="flex gap-x-4 items-center justify-evenly flex-col md:flex-row">
+          <div className="flex items-center justify-between flex-col md:flex-row">
+            <div className="flex gap-x-4 items-center justify-evenly flex-col md:flex-row pb-4 md:pb-0">
               <div className="w-12 h-12">
                 <img src="https://i.ibb.co/80t2LrQ/pngegg.png" alt="pngegg" />
               </div>
@@ -15,7 +15,7 @@ const NavBar = () => {
             </div>
 
             <div>
-              <nav aria-label="Site Nav">
+              <nav>
                 <ul className="flex items-center gap-6 text-sm flex-col md:flex-row">
                   <li>
                     <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
@@ -24,25 +24,25 @@ const NavBar = () => {
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/alltoys">
                       All Toys
                     </a>
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/mytoys">
                       My Toys
                     </a>
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/addatoy">
                       Add A Toy
                     </a>
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/blogs">
                       Blogs
                     </a>
                   </li>

@@ -1,10 +1,14 @@
 import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from '../Components/ErrorPage/ErrorPage';
-import FrontPage from '../Components/FrontPage/FrontPage';
 import Login from '../Components/Login/Login';
 import Register from '../Components/Register/Register';
 import LayoutHome from '../Layout/LayoutHome';
+import AddAToy from '../Pages/AddAToy';
+import AllToys from '../Pages/AllToys';
+import Blogs from '../Pages/Blogs';
+import Home from '../Pages/Home';
+import MyToys from '../Pages/MyToys';
 
 const router = createBrowserRouter([
     {
@@ -13,7 +17,7 @@ const router = createBrowserRouter([
       children:[
         {
           path: "/",
-          element: <FrontPage/>
+          element: <Home/>
         },
         {
           path: "/login",
@@ -22,6 +26,22 @@ const router = createBrowserRouter([
         {
           path: "/register",
           element: <Register/>
+        },
+        {
+          path: "/addatoy",
+          element: <AddAToy/>
+        },
+        {
+          path: "/alltoys",
+          element: <AllToys/>
+        },
+        {
+          path: "/blogs",
+          element: <Blogs/>
+        },
+        {
+          path: "/mytoys",
+          element: <MyToys/>
         }
       ]
     },

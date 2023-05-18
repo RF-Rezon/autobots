@@ -117,6 +117,19 @@ const Register = () => {
             />
           </div>
 
+          <div className="col-span-6">
+            <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
+              Photo Url
+            </label>
+
+            <input
+              type="url"
+              id="url"
+              name="url"
+              className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
+          </div>
+
           {/* <div className="col-span-6">
             <label htmlFor="MarketingAccept" className="flex gap-4">
               <input
