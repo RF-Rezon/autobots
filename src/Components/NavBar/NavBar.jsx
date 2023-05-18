@@ -4,7 +4,7 @@ const NavBar = () => {
     const [user, setUser] = useState(false);
   return (
     <div>
-      <header aria-label="Site Header" className="bg-white">
+      <header aria-label="Site Header" className="bg-white rounded-md p-5 my-3 mb-20 md:mb-5">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between flex-col md:flex-row">
             <div className="flex gap-x-4 items-center justify-evenly flex-col md:flex-row">
@@ -55,7 +55,8 @@ const NavBar = () => {
                           </div>
                         </label>
                         :
-                          <a className="rounded-md bg-gray-700 px-5 py-2.5 text-sm font-medium text-white shadow" href="/">
+                          <a className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+                           href="/login">
                             Login
                           </a>}
                     </div>
