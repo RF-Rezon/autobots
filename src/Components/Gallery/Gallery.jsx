@@ -12,7 +12,7 @@ const photos = [
 ];
 
 const Gallery = () => {
-  return <PhotoAlbum layout="masonry" columns={3} photos={photos} padding={20}/>;
+  return <PhotoAlbum layout="masonry" columns={3} photos={photos} padding={20} />;
 };
 
 export default Gallery;

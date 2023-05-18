@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div>
+    <div data-aos="fade-up">
       <section className="relative bg-[url(https://idigitalcitizen.files.wordpress.com/2009/06/1024x768-autobots-group.jpg)] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-black bg-opacity-80 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
 

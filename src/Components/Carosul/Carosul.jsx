@@ -2,7 +2,8 @@ import React from "react";
 
 const Carosul = () => {
   return (
-    <div className="my-10 mb-16">
+    <div className="my-10 mb-16" data-aos="fade-up"
+    data-aos-anchor-placement="bottom-bottom">
       <div className="h-96 carousel carousel-vertical rounded-box gap-y-6">
         <div className="carousel-item h-full w-3/5 mx-auto">
           <img src="https://media.gettyimages.com/id/77448305/photo/a-transformer-toy-made-by-hasbro-is-offered-for-sale-at-a-toys-r-us-store-october-22-2007-in.jpg?s=612x612&w=gi&k=20&c=2gEXRVcjRRiWqgafRhwDUot-dE2A1OwN7KOolbLVPhk="  className="w-full"/>
