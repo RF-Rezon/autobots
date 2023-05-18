@@ -8,7 +8,7 @@ const Footer = () => {
     className="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8"
   >
     <div className="sm:flex sm:items-center sm:justify-between">
-     <div className='flex gap-x-6 items-center justify-evenly'>
+     <div className='flex gap-x-4 items-center justify-evenly'>
         <div className='w-12 h-12'><img src="https://i.ibb.co/80t2LrQ/pngegg.png" alt="pngegg"/></div>
         <p className='text-2xl font-semibold text-gray-700'>AUTOBOTS</p>
      </div>
