@@ -1,13 +1,13 @@
-import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
   const { SignIn, Google} = useContext(AuthContext);
   const [error, setError] = useState("")
   const navigate  = useNavigate();
+  const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {

@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const NavBar = () => {
-  const [user, setUser] = useState(false);
-  const { loggedUser, LogOut } = useContext(AuthContext);
+  const { user, LogOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     LogOut()
@@ -64,14 +63,14 @@ const NavBar = () => {
 
                   <li>
                     <div className="flex items-center justify-between gap-x-3">
-                      {loggedUser ? (
+                      {user ? (
                         <>
                           <Tooltip id="my-tooltip" />
                           <div className="flex flex-row items-center justify-between space-x-4">
-                            <span data-tooltip-id="my-tooltip" data-tooltip-content={loggedUser?.displayName}>
+                            <span data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}>
                               <label className="avatar">
                                 <div className="w-10 rounded-full">
-                                  <img src={loggedUser?.photoURL} />
+                                  <img src={user?.photoURL} />
                                 </div>
                               </label>
                             </span>
