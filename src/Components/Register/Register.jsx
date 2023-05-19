@@ -1,16 +1,18 @@
 import { getAuth } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import application from '../../AuthProvider/app/app';
+import { AuthContext } from './../../AuthProvider/AuthProvider';
 
 const Register = () => {
-  const auth = getAuth();
+  const auth = getAuth(application);
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate()
   const {SignUp} = useContext(AuthContext);
 
 
-  const handleSubmit = (e)=> {
+  const handleSubmit  = async (e) => {
     e.preventDefault();
    const form =  e.target;
    const fname = form.first_name.value;
@@ -18,16 +20,9 @@ const Register = () => {
    const email = form.email.value;
    const password = form.password.value;
    const url  = form.url.value;
-
-  //  updateProfile(auth.currentUser, {
-  //   displayName: `${fname} ${lname}` , photoURL: url
-  // }).then(() => {
-  //   alert('Profile picture updated!')
-  // }).catch((error) => {
-  //   alert('Profile picture not updated!')
-  // });
    
-    SignUp(email, password)
+
+   SignUp(email, password)
      .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -41,8 +36,7 @@ const Register = () => {
         // ..
       });
 
-   e.target.reset();
-  }
+    };
 
     return (
         <div>
