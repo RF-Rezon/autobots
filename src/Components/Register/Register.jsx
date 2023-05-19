@@ -1,6 +1,49 @@
-import React from 'react';
+import { getAuth } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
+  const auth = getAuth();
+  const [error, setError] = useState("")
+  const navigate = useNavigate()
+  const {SignUp} = useContext(AuthContext);
+
+
+  const handleSubmit = (e)=> {
+    e.preventDefault();
+   const form =  e.target;
+   const fname = form.first_name.value;
+   const lname = form.last_name.value;
+   const email = form.email.value;
+   const password = form.password.value;
+   const url  = form.url.value;
+
+  //  updateProfile(auth.currentUser, {
+  //   displayName: `${fname} ${lname}` , photoURL: url
+  // }).then(() => {
+  //   alert('Profile picture updated!')
+  // }).catch((error) => {
+  //   alert('Profile picture not updated!')
+  // });
+   
+    SignUp(email, password)
+     .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        alert("Sign Up Successfully!")
+        navigate("/login")
+        // ...
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage)
+        // ..
+      });
+
+   e.target.reset();
+  }
+
     return (
         <div>
             {/*
@@ -39,7 +82,7 @@ const Register = () => {
           Register from here
         </p>
 
-        <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+        <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-6 gap-6">
           <div className="col-span-6 sm:col-span-3">
             <label
               htmlFor="FirstName"
@@ -101,22 +144,6 @@ const Register = () => {
             />
           </div>
 
-          <div className="col-span-6 sm:col-span-3">
-            <label
-              htmlFor="PasswordConfirmation"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password Confirmation
-            </label>
-
-            <input
-              type="password"
-              id="PasswordConfirmation"
-              name="password_confirmation"
-              className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-            />
-          </div>
-
           <div className="col-span-6">
             <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
               Photo Url
@@ -129,6 +156,9 @@ const Register = () => {
               className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
+         {error && <p className='col-span-6 text-red-600 font-bold font-sm'>
+                {error}
+          </p>}
 
           {/* <div className="col-span-6">
             <label htmlFor="MarketingAccept" className="flex gap-4">
