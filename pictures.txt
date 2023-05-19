@@ -21,3 +21,4 @@ https://ibb.co/Y3w8FcV
 
 
 
+url,pname,sname,semail,scategory,price,rating,quantity,description
