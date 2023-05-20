@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const MyToys = () => {
-  const data = useLoaderData();
+    const data = useLoaderData();
+    const [users, setUsers] = useState(data)
+
+  const handleDelete =(id)=>{
+
+    fetch(`http://localhost:3000/getmytoys/${id}`, {
+        method: "DELETE"
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("Data deleted successfully!");
+            const filteredData = users.filter(user => user._id !== id)
+            setUsers(filteredData)
+          }
+        });
+  }
 
   return (
     <div className="my-5">
@@ -20,7 +37,7 @@ const MyToys = () => {
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            {data.map((data, index) => (
+            {users.map((data, index) => (
               <tr className="text-center" key={index}>
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{data.sname}</td>
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{data.tname}</td>
@@ -36,7 +53,7 @@ const MyToys = () => {
                         Update
                       </a>
                   </label>
-                  <a
+                  <a onClick={()=> handleDelete(data._id)}
                     className="inline-block shrink-0 rounded-md border border-gray-600 bg-gray-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-transparent hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500 cursor-pointer m-5"
                   >
                     Delete

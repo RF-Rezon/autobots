@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -32,33 +33,33 @@ const NavBar = () => {
               <nav>
                 <ul className="flex items-center gap-6 text-sm flex-col md:flex-row">
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+                    <NavLink className="text-gray-500 transition hover:text-gray-500/75" to="/">
                       Home
-                    </a>
+                    </NavLink>
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/alltoys">
+                    <NavLink className="text-gray-500 transition hover:text-gray-500/75" to="/alltoys">
                       All Toys
-                    </a>
+                    </NavLink>
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/mytoys">
+                    <NavLink className="text-gray-500 transition hover:text-gray-500/75" to="/mytoys">
                       My Toys
-                    </a>
+                    </NavLink>
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/addatoy">
+                    <NavLink className="text-gray-500 transition hover:text-gray-500/75" to="/addatoy">
                       Add A Toy
-                    </a>
+                    </NavLink>
                   </li>
 
                   <li>
-                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/blogs">
+                    <NavLink className="text-gray-500 transition hover:text-gray-500/75" to="/blogs">
                       Blogs
-                    </a>
+                    </NavLink>
                   </li>
 
                   <li>
