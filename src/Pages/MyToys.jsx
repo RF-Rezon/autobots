@@ -12,7 +12,6 @@ const MyToys = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount > 0) {
             alert("Data deleted successfully!");
             const filteredData = users.filter(user => user._id !== id)
@@ -45,38 +44,24 @@ const MyToys = () => {
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.price}</td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.quantity}</td>
                 <td className="whitespace-nowrap px-4 py-2 space-x-6">
-                  <label htmlFor="my-modal-3">
-                      <a
-                        onClick={() => handleViewDetails(data._id)}
+                 
+                      <button
+                        
                         className="inline-block shrink-0 rounded-md border border-indigo-600 bg-indigo-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 cursor-pointer"
                       >
                         Update
-                      </a>
-                  </label>
-                  <a onClick={()=> handleDelete(data._id)}
+                      </button>
+                
+                  <button onClick={()=> handleDelete(data._id)}
                     className="inline-block shrink-0 rounded-md border border-gray-600 bg-gray-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-transparent hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500 cursor-pointer m-5"
                   >
                     Delete
-                  </a>
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
- 
-        {/* Put this part before </body> tag */}
-        <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-        <div className="modal bg-white bg-opacity-75">
-          <div className="modal-box relative">
-            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 text-white">
-              ✕
-            </label>
-            <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
-            <p className="py-4">
-              You've been selected for a chance to get one year of subscription to use Wikipedia for free!
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
