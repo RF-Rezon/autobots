@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from 'react-toastify';
 
 const AddAToy = () => {
   const handleSubmit = async (e) => {
@@ -25,7 +26,7 @@ const AddAToy = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert("Data added successfully!");
+          toast("New toy added!");
           form.reset();
         }
       });

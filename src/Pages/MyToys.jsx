@@ -1,29 +1,36 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const MyToys = () => {
-    const data = useLoaderData();
-    const [users, setUsers] = useState(data)
-    const navigate = useNavigate()
+  const data = useLoaderData();
+  const [users, setUsers] = useState(data);
+  const navigate = useNavigate();
 
-    const handleUpdate =(id)=> {
-        navigate(`/mytoys/${id}`)
+  const handleUpdate = (id) => {
+    navigate(`/mytoys/${id}`);
+  };
+
+  const handleDelete = async (id) => {
+    const x = confirm("Are you sure want to delete?");
+    if(!x){
+        return;
     }
 
-  const handleDelete =(id)=>{
+    await fetch(`http://localhost:3000/getmytoys/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          toast("Toy Deleted Successfully");
+          const filteredData = users.filter((user) => user._id !== id);
+          setUsers(filteredData);
+        }
+      });
 
-    fetch(`http://localhost:3000/getmytoys/${id}`, {
-        method: "DELETE"
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            alert("Data deleted successfully!");
-            const filteredData = users.filter(user => user._id !== id)
-            setUsers(filteredData)
-          }
-        });
-  }
+    
+  };
 
   return (
     <div className="my-5">
@@ -49,15 +56,15 @@ const MyToys = () => {
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.price}</td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.quantity}</td>
                 <td className="whitespace-nowrap px-4 py-2 space-x-6">
-                 
-                      <button
-                        onClick={()=> handleUpdate(data._id)}
-                        className="inline-block shrink-0 rounded-md border border-indigo-600 bg-indigo-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 cursor-pointer"
-                      >
-                        Update
-                      </button>
-                
-                  <button onClick={()=> handleDelete(data._id)}
+                  <button
+                    onClick={() => handleUpdate(data._id)}
+                    className="inline-block shrink-0 rounded-md border border-indigo-600 bg-indigo-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 cursor-pointer"
+                  >
+                    Update
+                  </button>
+
+                  <button
+                    onClick={() => handleDelete(data._id)}
                     className="inline-block shrink-0 rounded-md border border-gray-600 bg-gray-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-transparent hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500 cursor-pointer m-5"
                   >
                     Delete

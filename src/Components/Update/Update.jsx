@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const Update = () => {
   const singleInfo = useLoaderData();
@@ -21,7 +22,11 @@ const Update = () => {
       body: JSON.stringify({ price, quantity, description }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if(data){
+            toast("Data Updated Successfully !");
+        }
+      });
   };
 
   return (
