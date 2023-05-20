@@ -8,7 +8,6 @@ const AllToys = () => {
    const data =  useLoaderData();
    const navigate = useNavigate();
   const {user} = useContext(AuthContext);
-   console.log(data)
 
    const handleViewDetails = (id) => {
 
@@ -19,8 +18,6 @@ const AllToys = () => {
     }
   };
 
-    // console.log(data[0])
-    // const {tname, sname, scategory, price, quantity} = data[0];
   return (
     <div className="my-5">
       <div className="overflow-x-auto">

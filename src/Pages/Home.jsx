@@ -1,11 +1,11 @@
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+import 'aos/dist/aos.css';
 import React from "react";
 import Carosul from "../Components/Carosul/Carosul";
 import Gallery from "../Components/Gallery/Gallery";
 import Header from "../Components/Header/Header";
 import TabSection from './../Components/TabSection/TabSection';
-// ..
+
 AOS.init();
 
 const Home = () => {

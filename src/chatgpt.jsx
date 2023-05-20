@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const SignUpForm = () => {
   const [email, setEmail] = useState('');
@@ -22,15 +23,11 @@ const SignUpForm = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      // Step 3: Sign up a new user with profile picture URL
       const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
-
-      // Step 4: Associate the profile picture URL with the user's account
       await userCredential.user.updateProfile({
         photoURL: profilePictureUrl
       });
-
-      console.log("User signed up with profile picture URL successfully!");
+      toast("User signed up with profile picture URL successfully!");
     } catch (error) {
       console.error("Error signing up user with profile picture URL:", error);
     }

@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 
 const Update = () => {
   const singleInfo = useLoaderData();
-  console.log(singleInfo);
 
   const handleUpdate = (e) => {
     e.preventDefault();

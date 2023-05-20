@@ -24,7 +24,6 @@ const AddAToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           toast("New toy added!");
           form.reset();
@@ -51,6 +50,7 @@ const AddAToy = () => {
                   name="url"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Picture URL"
+                  type="url"
                 />
               </div>
             </div>
@@ -65,6 +65,7 @@ const AddAToy = () => {
                   name="tname"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Toy Name"
+                  type="text"
                 />
               </div>
             </div>
@@ -79,6 +80,7 @@ const AddAToy = () => {
                   name="sname"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Seller Name"
+                  type="text"
                 />
               </div>
             </div>
@@ -93,6 +95,7 @@ const AddAToy = () => {
                   name="semail"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Seller Email"
+                  type="email"
                 />
               </div>
             </div>
@@ -107,6 +110,7 @@ const AddAToy = () => {
                   name="scategory"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Sub-category"
+                  type="text"
                 />
               </div>
             </div>
@@ -166,6 +170,7 @@ const AddAToy = () => {
                   name="description"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Detail Description"
+                  type="text"
                 />
               </div>
             </div>
