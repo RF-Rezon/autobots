@@ -4,6 +4,7 @@ import ErrorPage from '../Components/ErrorPage/ErrorPage';
 import Login from '../Components/Login/Login';
 import Register from '../Components/Register/Register';
 import SingleToyDetails from '../Components/SingleToyDetails/SingleToyDetails';
+import Update from '../Components/Update/Update';
 import LayoutHome from '../Layout/LayoutHome';
 import AddAToy from '../Pages/AddAToy';
 import AllToys from '../Pages/AllToys';
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
           path: "/mytoys",
           element: <PrivateRoute><MyToys/></PrivateRoute> ,
           loader: ()=> fetch("http://localhost:3000/getmytoys")
+        },
+        {
+          path: "/mytoys/:id",
+          element: <Update/>,
+          loader: ({params})=> fetch(`http://localhost:3000/getmytoys/${params.id}`)
         },
         {
           path: "/blogs",

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const MyToys = () => {
     const data = useLoaderData();
     const [users, setUsers] = useState(data)
+    const navigate = useNavigate()
+
+    const handleUpdate =(id)=> {
+        navigate(`/mytoys/${id}`)
+    }
 
   const handleDelete =(id)=>{
 
@@ -46,7 +51,7 @@ const MyToys = () => {
                 <td className="whitespace-nowrap px-4 py-2 space-x-6">
                  
                       <button
-                        
+                        onClick={()=> handleUpdate(data._id)}
                         className="inline-block shrink-0 rounded-md border border-indigo-600 bg-indigo-600 px-4 py-2 text-xs font-medium text-white transition hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 cursor-pointer"
                       >
                         Update
