@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from '../Components/ErrorPage/ErrorPage';
 import Login from '../Components/Login/Login';
 import Register from '../Components/Register/Register';
+import SingleToyDetails from '../Components/SingleToyDetails/SingleToyDetails';
 import LayoutHome from '../Layout/LayoutHome';
 import AddAToy from '../Pages/AddAToy';
 import AllToys from '../Pages/AllToys';
@@ -34,7 +35,13 @@ const router = createBrowserRouter([
         },
         {
           path: "/alltoys",
-          element: <AllToys/>
+          element: <AllToys/>,
+          loader: ()=> fetch("http://localhost:3000/getalltoys")
+        },
+        {
+          path: "/alltoys/:id",
+          element: <PrivateRoute><SingleToyDetails/></PrivateRoute> ,
+          loader: ({params})=> fetch(`http://localhost:3000/getalltoys/${params.id}`)
         },
         {
           path: "/blogs",

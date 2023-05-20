@@ -5,7 +5,7 @@ const AddAToy = () => {
     e.preventDefault();
     const form = e.target;
     const url = form.url.value;
-    const pname = form.pname.value;
+    const tname = form.tname.value;
     const sname = form.sname.value;
     const semail = form.semail.value;
     const scategory = form.scategory.value;
@@ -14,15 +14,21 @@ const AddAToy = () => {
     const quantity = form.quantity.value;
     const description = form.description.value;
 
-    
     fetch("http://localhost:3000/posttoys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ url, pname, sname, semail, scategory, price, rating, quantity, description }),
-    }).then( res => res.json())
-    .then(data => console.log(data))
+      body: JSON.stringify({ url, tname, sname, semail, scategory, price, rating, quantity, description }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          alert("Data added successfully!");
+          form.reset();
+        }
+      });
   };
 
   return (
@@ -55,7 +61,7 @@ const AddAToy = () => {
 
               <div className="relative">
                 <input
-                  name="pname"
+                  name="tname"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Toy Name"
                 />
@@ -114,6 +120,7 @@ const AddAToy = () => {
                   name="price"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Price"
+                  type="number"
                 />
               </div>
             </div>
@@ -128,6 +135,7 @@ const AddAToy = () => {
                   name="rating"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Rating"
+                  type="number"
                 />
               </div>
             </div>
@@ -142,6 +150,7 @@ const AddAToy = () => {
                   name="quantity"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Available Quantity"
+                  type="number"
                 />
               </div>
             </div>
