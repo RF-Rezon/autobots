@@ -4,8 +4,6 @@ import { AuthContext } from './../../AuthProvider/AuthProvider';
 
 const Tab3 = () => {
 
-    
-    const navigate = useNavigate();
    const {user} = useContext(AuthContext);
 
    const handleViewDetails = () => {

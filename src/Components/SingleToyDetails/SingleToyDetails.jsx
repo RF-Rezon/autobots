@@ -1,8 +1,10 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Title from "../Title/Title";
 
 
 const SingleToyDetails = () => {
+  Title("Single Toy Details")
    const singleCardData = useLoaderData();
     const  { url, tname, sname, semail, price, rating, quantity, description } = singleCardData;
   return (

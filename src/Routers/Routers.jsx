@@ -38,22 +38,22 @@ const router = createBrowserRouter([
         {
           path: "/alltoys",
           element: <AllToys/>,
-          loader: ()=> fetch("http://localhost:3000/getalltoys")
+          loader: ()=> fetch("https://autobotsserver.vercel.app/getalltoys")
         },
         {
           path: "/alltoys/:id",
           element: <PrivateRoute><SingleToyDetails/></PrivateRoute> ,
-          loader: ({params})=> fetch(`http://localhost:3000/getalltoys/${params.id}`)
+          loader: ({params})=> fetch(`https://autobotsserver.vercel.app/getalltoys/${params.id}`)
         },
         {
           path: "/mytoys",
           element: <PrivateRoute><MyToys/></PrivateRoute> ,
-          loader: ()=> fetch("http://localhost:3000/getmytoys")
+          loader: ()=> fetch("https://autobotsserver.vercel.app/getmytoys")
         },
         {
           path: "/mytoys/:id",
           element: <Update/>,
-          loader: ({params})=> fetch(`http://localhost:3000/getmytoys/${params.id}`)
+          loader: ({params})=> fetch(`https://autobotsserver.vercel.app/getmytoys/${params.id}`)
         },
         {
           path: "/blogs",

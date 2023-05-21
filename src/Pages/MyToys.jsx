@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Title from "../Components/Title/Title";
 
 const MyToys = () => {
+  Title("My Toys")
   const data = useLoaderData();
   const [users, setUsers] = useState(data);
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const MyToys = () => {
         return;
     }
 
-    await fetch(`http://localhost:3000/getmytoys/${id}`, {
+    await fetch(`https://autobotsserver.vercel.app/getmytoys/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

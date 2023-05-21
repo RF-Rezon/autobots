@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "./../../AuthProvider/AuthProvider";
 import { toast } from 'react-toastify';
+import { AuthContext } from "./../../AuthProvider/AuthProvider";
 
-const LittleCard = ({ data }) => {
-  console.log(data);
-  // const data =  useLoaderData();
-  const navigate = useNavigate();
+const LittleCard = () => {
+ 
   const { user } = useContext(AuthContext);
 
   const handleViewDetails = () => {

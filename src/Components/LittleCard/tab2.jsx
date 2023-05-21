@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./../../AuthProvider/AuthProvider";
 
 const Tab2 = () => {
-  // const data =  useLoaderData();
-  const navigate = useNavigate();
+
   const { user } = useContext(AuthContext);
 
   const handleViewDetails = () => {

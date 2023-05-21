@@ -13,7 +13,7 @@ const Update = () => {
     const description = form.description.value;
 
 
-    fetch(`http://localhost:3000/getmytoys/${singleInfo._id}`, {
+    fetch(`https://autobotsserver.vercel.app/getmytoys/${singleInfo._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

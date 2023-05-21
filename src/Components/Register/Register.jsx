@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from './../../AuthProvider/AuthProvider';
+import Title from '../Title/Title';
 
 const Register = () => {
+  Title("Register")
   const [error, setError] = useState("")
   const navigate = useNavigate()
   const {SignUp} = useContext(AuthContext);

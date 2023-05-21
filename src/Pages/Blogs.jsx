@@ -1,6 +1,8 @@
 import React from 'react';
+import Title from '../Components/Title/Title';
 
 const Blogs = () => {
+  Title("Blogs")
     return (
         <div>
              <div>

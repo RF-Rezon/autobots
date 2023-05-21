@@ -2,14 +2,16 @@ import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { toast } from 'react-toastify';
+import Title from "../Title/Title";
 
 const Login = () => {
+  Title("Log In")
   const { SignIn, Google} = useContext(AuthContext);
   const [error, setError] = useState("")
   const navigate  = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  console.log(from)
 
   const handleSubmit = (e) => {
     e.preventDefault();

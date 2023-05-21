@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './../../AuthProvider/AuthProvider';
 
 const Tab6 = () => {
 
-  
-    const navigate = useNavigate();
    const {user} = useContext(AuthContext);
 
    const handleViewDetails = () => {

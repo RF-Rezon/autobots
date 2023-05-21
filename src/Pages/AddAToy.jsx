@@ -1,7 +1,9 @@
 import React from "react";
 import { toast } from 'react-toastify';
+import Title from "../Components/Title/Title";
 
 const AddAToy = () => {
+  Title("Add A Toy")
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,7 +17,7 @@ const AddAToy = () => {
     const quantity = form.quantity.value;
     const description = form.description.value;
 
-    fetch("http://localhost:3000/posttoys", {
+    fetch("https://autobotsserver.vercel.app/posttoys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

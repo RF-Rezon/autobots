@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Title from "../Components/Title/Title";
 
 
 const AllToys = () => {
-    
+  Title("All Toys")
    const data =  useLoaderData();
    const navigate = useNavigate();
   const {user} = useContext(AuthContext);
