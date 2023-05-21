@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { SignIn, Google} = useContext(AuthContext);
@@ -20,6 +21,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+         
         navigate(from, { replace: true });
         // ...
       })

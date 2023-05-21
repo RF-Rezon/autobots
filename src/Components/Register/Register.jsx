@@ -1,13 +1,10 @@
-import { getAuth } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import application from '../../AuthProvider/app/app';
+import { toast } from 'react-toastify';
 import { AuthContext } from './../../AuthProvider/AuthProvider';
 
 const Register = () => {
-  const auth = getAuth(application);
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate()
   const {SignUp} = useContext(AuthContext);
 
@@ -26,7 +23,7 @@ const Register = () => {
      .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        alert("Sign Up Successfully!")
+        toast("Sign Up Successfully!")
         navigate("/login")
         // ...
       })
@@ -40,12 +37,7 @@ const Register = () => {
 
     return (
         <div>
-            {/*
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
-*/}
+           
 
 <section className="bg-white rounded-md p-5 my-3">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -154,21 +146,6 @@ const Register = () => {
                 {error}
           </p>}
 
-          {/* <div className="col-span-6">
-            <label htmlFor="MarketingAccept" className="flex gap-4">
-              <input
-                type="checkbox"
-                id="MarketingAccept"
-                name="marketing_accept"
-                className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
-              />
-
-              <span className="text-sm text-gray-700">
-                I want to receive emails about events, product updates and
-                company announcements.
-              </span>
-            </label>
-          </div> */}
 
           <div className="col-span-6">
             <p className="text-sm text-gray-500">

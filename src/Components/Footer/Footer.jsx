@@ -13,7 +13,7 @@ const Footer = () => {
         <p className='text-2xl font-semibold text-gray-700'>AUTOBOTS</p>
      </div>
 
-      <ul className="flex justify-start gap-6 mt-8 sm:mt-0 sm:justify-end">
+      <ul className="flex justify-center gap-6 mt-8 sm:mt-0 sm:justify-end">
         <li>
           <a
             href="https://www.programming-hero.com"
@@ -137,7 +137,7 @@ const Footer = () => {
     <div
       className="grid grid-cols-1 gap-8 pt-8 border-t border-gray-100 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16"
     >
-      <div>
+      <div className='text-center'>
         <p className="font-medium text-gray-900">Services</p>
 
         <nav aria-label="Footer Navigation - Services" className="mt-6">
